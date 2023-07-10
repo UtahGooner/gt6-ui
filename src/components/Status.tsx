@@ -2,12 +2,11 @@ import React from 'react';
 import classNames from "classnames";
 import packageJSON from '../../package.json';
 
-interface Status {
+
+const Status = ({connected, ping}:{
     connected: boolean,
     ping: boolean,
-}
-
-const Status: React.FC<Status> = ({connected, ping}) => {
+}) => {
     return (
         <div className={classNames("status", {disconnected: !connected})}>
             <div className="version">{packageJSON.name}, v. {packageJSON.version}</div>
@@ -17,4 +16,4 @@ const Status: React.FC<Status> = ({connected, ping}) => {
         </div>
     )
 }
-export default React.memo(Status);
+export default Status;

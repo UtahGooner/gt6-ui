@@ -2,10 +2,10 @@ import React from "react";
 import {emojiList} from "../emoji";
 
 
-interface EmojiImage {
+
+const EmojiImage = ({name}:{
     name: string,
-}
-const EmojiImage:React.FC<EmojiImage> = ({name}) => {
+}) => {
     if (!emojiList[name]) {
         return null;
     }

@@ -3,7 +3,7 @@ import useWebSocket from "react-use-websocket";
 import ChatList from "./ChatList";
 import Status from "./Status";
 import ChatForm from "./ChatForm";
-import {Chat, GT6Params, WSJsonMessage} from "../types";
+import {Chat, WSJsonMessage} from "../types";
 
 const socketURL = 'wss://gutenprog.com/gt6/chat/';
 
@@ -15,7 +15,7 @@ const SOCKET = {
     MAX_RECONNECT: 10 * 60 * 1000,
 };
 
-const GutenTag: React.FC = () => {
+const GutenTag = () => {
     const [intervalHandler, setIntervalHandler] = useState(0);
     const [timerHandler, setTimerHandler] = useState(0);
     const [shouldReconnect, setShouldReconnect] = useState(true);
@@ -92,9 +92,9 @@ const GutenTag: React.FC = () => {
             </div>
             <div>
                 <ChatForm chatName={tagName} onChangeChatName={value => setTagName(value)}
-                           url={url} onChangeUrl={value => setUrl(value)}
-                           chatText={chatText} onChangeChatText={value => setChatText(value)}
-                           onSubmit={onSubmitMessage}/>
+                          url={url} onChangeUrl={value => setUrl(value)}
+                          chatText={chatText} onChangeChatText={value => setChatText(value)}
+                          onSubmit={onSubmitMessage}/>
             </div>
         </div>
     )

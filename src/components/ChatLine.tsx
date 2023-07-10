@@ -3,12 +3,12 @@ import EmojifiedText from './EmojifiedText';
 import TagName from "./TagName";
 import {Chat} from "../types";
 
-interface ChatLine extends Partial<Chat> {
+interface ChatLineProps extends Partial<Chat> {
     tagname: string,
     url: string,
     chattext: string,
 }
-const ChatLine:React.FC<ChatLine> = ({createdAt, url, tagname, chattext}) => {
+const ChatLine = ({createdAt, url, tagname, chattext}:ChatLineProps) => {
     const timestamp = new Date(createdAt || Date.now()).toLocaleString();
     return (
         <div className="chat">
@@ -25,4 +25,4 @@ const ChatLine:React.FC<ChatLine> = ({createdAt, url, tagname, chattext}) => {
     )
 };
 
-export default React.memo(ChatLine);
+export default ChatLine;

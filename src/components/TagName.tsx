@@ -1,16 +1,17 @@
-import validator from "validator";
+import isEmail from "validator/lib/isEmail";
+import isURL from "validator/lib/isURL";
 import React from "react";
 
-interface TagName {
+
+const TagName = ({url = '', tagName = ''}: {
     url: string,
     tagName: string,
-}
-const TagName:React.FC<TagName> = ({url = '', tagName = ''}) => {
+}) => {
     url = url.trim();
-    if (validator.isEmail(url)) {
+    if (isEmail(url)) {
         return (<a href={`mailto:${url}`} target="_blank">{tagName}</a>);
     }
-    if (validator.isURL(url)) {
+    if (isURL(url)) {
         return (<a href={url} target="_blank">{tagName}</a>);
     }
     return (<span>{tagName}</span>);

@@ -64,6 +64,7 @@ export const emojiList:EmojiList = {
     uhh: 'uhh.gif',
     watcher: 'watcher.gif',
     wave: 'wavey.gif',
+    woohoo: 'woohoo.gif',
     yarr: 'pirate2.gif',
     yes: 'yes-anim-2.gif',
     yes2: 'yes2_sm.gif',

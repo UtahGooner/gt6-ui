@@ -1,16 +1,14 @@
 import React from 'react';
-import nodeEmoji from 'node-emoji';
+import * as nodeEmoji from 'node-emoji';
 import {emojiList} from '../emoji';
 import EmojiImage from "./EmojiImage";
 
 // copied from 'node-emoji', emojify with modifications for react rendering
 const emojiNameRegex = /:([a-zA-Z0-9_\-+]+):/g;
 
-interface EmojifiedText {
+const EmojifiedText = ({chatText}:{
     chatText: string,
-}
-
-const EmojifiedText: React.FC<EmojifiedText> = ({chatText}) => {
+}) => {
     if (!chatText) {
         return null;
     }
@@ -29,7 +27,7 @@ const EmojifiedText: React.FC<EmojifiedText> = ({chatText}) => {
                             );
                         }
                         const emoji = nodeEmoji.get(word);
-                        const isMissing = emoji.indexOf(':') > -1;
+                        const isMissing = !emoji || emoji.indexOf(':') > -1;
                         const wrappedWord = `:${word}:`;
                         if (isMissing) {
                             return <span key={i} data-emoji={emoji}>{wrappedWord}</span>;

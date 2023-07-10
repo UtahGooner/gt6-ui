@@ -11,17 +11,8 @@ export const isValidURL = (url = '') => {
     return url === '' || isEmail(url) || isURL(url);
 };
 
-interface ChatForm {
-    chatName: string,
-    url: string,
-    chatText: string,
-    onChangeChatName: (chatName: string) => void,
-    onChangeUrl: (chatName: string) => void,
-    onChangeChatText: (chatName: string) => void,
-    onSubmit: () => void,
-}
 
-const ChatForm: React.FC<ChatForm> = ({
+const ChatForm = ({
                                           chatName,
                                           onChangeChatName,
                                           url,
@@ -29,7 +20,15 @@ const ChatForm: React.FC<ChatForm> = ({
                                           chatText,
                                           onChangeChatText,
                                           onSubmit,
-                                      }) => {
+                                      }:{
+    chatName: string,
+    url: string,
+    chatText: string,
+    onChangeChatName: (chatName: string) => void,
+    onChangeUrl: (chatName: string) => void,
+    onChangeChatText: (chatName: string) => void,
+    onSubmit: () => void,
+}) => {
 
     const formRef = useRef<HTMLFormElement>(null);
     const nameRef = useRef<HTMLInputElement>(null)
