@@ -22,10 +22,9 @@ export default merge(commonConfig, {
             {directory: process.cwd(), watch: false}
         ],
         hot: true,
-        proxy: {
-            '/api': {...localProxy},
-            '/version': {...localProxy},
-        },
+        proxy: [
+            {context: ['/api', '/version'], ...localProxy}
+        ],
         watchFiles: 'src/**/*',
     },
     devtool: 'eval-source-map',

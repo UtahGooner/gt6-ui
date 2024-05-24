@@ -27,7 +27,7 @@ export default merge(commonConfig, {
         ],
     },
     output: {
-        filename: "[name].[contenthash].js",
+        filename: "[name].[contenthash:8].js",
     },
     plugins: [
         new CleanWebpackPlugin(),

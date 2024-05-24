@@ -43,11 +43,6 @@ export const commonConfig = {
                     name: 'vendors',
                     chunks: 'all',
                 },
-                chums: {
-                    test: /[\\/](common|chums)-components[\\/]/,
-                    name: 'chums',
-                    chunks: 'all',
-                },
             }
         }
     },

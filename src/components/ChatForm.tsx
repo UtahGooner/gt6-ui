@@ -82,7 +82,6 @@ const ChatForm = ({
                 return;
             }
             const filter = chatText.substring(start, selectionEnd);
-            console.log(filter);
             setMatching(emojiArray.filter(e => e.key.startsWith(filter)))
         }
     }
@@ -120,7 +119,7 @@ const ChatForm = ({
                        placeholder="URL or Email (optional)"
                        value={url} onChange={urlChangeHandler}/>
             </div>
-            <textarea className="form-control form-control-sm mb-1"
+            <textarea className="form-control form-control-sm mb-1" disabled={!chatName}
                       value={chatText}
                       ref={chatRef}
                       placeholder="Got something to say?" required

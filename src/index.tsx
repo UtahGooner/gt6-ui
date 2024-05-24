@@ -11,12 +11,15 @@ declare global {
 
 
 const dataElement = document.querySelector('#app-user') as HTMLDivElement;
-window.gt6Params = {};
+if (!window.gt6Params) {
+    window.gt6Params = {};
+}
+
 try {
-    if (dataElement && dataElement.dataset.user) {
-        window.gt6Params = JSON.parse(dataElement.dataset.user ?? '{}');
+    if (dataElement && !window.gt6Params.user && !!dataElement.dataset.gt6UserName) {
+        window.gt6Params.user = JSON.parse(dataElement.dataset.gt6UserName);
     }
 } catch(err:unknown) {
 }
-const root = createRoot(document.getElementById('app')!);
+const root = createRoot(document.getElementById('gt6-app')!);
 root.render(<GutenTag />);
